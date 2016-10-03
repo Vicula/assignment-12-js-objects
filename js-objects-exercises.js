@@ -216,9 +216,30 @@ I need a fake passport, preferably to France. I like the way they think. Oh, COM
 I'm foolish and I'm funny and I'm needy. Am I needy? Are you sure I'm not needy? 'Cause I feel needy sometimes. Obviously this blue part here is the land. \
 Let's see some bananas and nuts! This was a big get for God. They don't allow you to have bees in here. I want to cry so bad, but I don't think I can spare the moisture. No, Pop-pop does not get a treat, I just brought you a [bleep]ing pizza. It walked on my pillow! I'll buy you a hundred George Michaels that you can teach to drive! A group of British builders operating outside the O.C."
 
-var wordFrequencyObject = getCounts(sampleText) {
+var getCounts = function (longStr) {
+   var freqObj = {}
+   var arryOfWords = longStr.toLowerCase().split(' ')
 
+   for ( var i = 0; i < arryOfWords.length; i++){
+      var wrdStr = arryOfWords[i]
+
+      if ( typeof freqObj[wrdStr] === 'undefined') {
+         freqObj[wrdStr] = 1
+      } else {
+         freqObj[wrdStr] = freqObj[wrdStr] + 1
+      }
+   }
+
+
+
+   return freqObj
 }
+
+
+
+var wordFrequencyObject = getCounts(sampleText)
+
+
 
 
 console.assert( wordFrequencyObject.need === 3 )
